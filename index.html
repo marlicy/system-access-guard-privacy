@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="系统访问提示助手的用途、本地数据处理、权限、用户控制与联系方式说明。">
+  <title>系统访问提示助手 — 隐私说明</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff; color: #202830; font-family: system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; line-height: 1.85; }
+    main { max-width: 820px; margin: 0 auto; padding: 48px 24px 64px; }
+    h1 { margin: 0 0 8px; font-size: clamp(26px, 5vw, 34px); line-height: 1.4; }
+    h2 { margin: 30px 0 10px; font-size: 20px; }
+    p { margin: 10px 0; }
+    .date { margin-bottom: 28px; color: #576370; }
+    code, a { overflow-wrap: anywhere; }
+    code { font-size: 0.95em; }
+    a { color: #075ca8; text-underline-offset: 3px; }
+    a:focus-visible { outline: 3px solid #075ca8; outline-offset: 4px; }
+    footer { margin-top: 36px; padding-top: 18px; border-top: 1px solid #dde3e8; color: #576370; }
+    @media (max-width: 480px) { main { padding: 28px 18px 40px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>系统访问提示助手：隐私说明</h1>
+    <p class="date">生效日期：2026 年 10 月 21 日 · 适用扩展版本：1.0.0</p>
+
+    <h2>一、发布者与适用范围</h2>
+    <p>发布者：上海骁卓数字科技有限公司。本文说明 Microsoft Edge 扩展“系统访问提示助手”的数据处理方式。</p>
+
+    <h2>二、扩展用途</h2>
+    <p>本扩展用于在指定业务系统 <code>http://113.44.77.136:8080</code> 的顶层页面返回可被浏览器扩展 API 观察到的真实 HTTP 502 响应时，在当前标签页打开扩展内置的本地提示页面，并提供手动重新访问系统的按钮。</p>
+    <p>正常响应、子资源请求及其他网站不会触发该提示。本扩展不修改 IP 白名单、不检测用户公网 IP 的变化，也不根据 502 确定具体故障原因。提示文字为预设业务文案。</p>
+
+    <h2>三、本地访问和处理的数据</h2>
+    <p>为实现上述功能，扩展在用户设备上即时读取指定系统主页面的请求 URL、请求类型、HTTP 响应状态码，以及临时标签页 ID 和请求 ID。它也会核对目标标签页当前或待加载的 URL，避免旧请求覆盖用户的新导航。</p>
+    <p>这些处理涉及指定系统的当前浏览地址与网络请求状态，仅服务于错误提示功能。扩展不读取浏览器历史数据库、不建立访问网址列表，不保存 URL 为浏览记录，不将这些数据上传给发布者或第三方。</p>
+    <p>请求 ID 与去重标记仅保留在扩展后台内存中，并在后续导航、标签页关闭或后台被浏览器回收时按运行逻辑更新或清理；不写入持久化存储。</p>
+
+    <h2>四、权限说明</h2>
+    <p><code>webRequest</code> 权限用于以非阻塞方式监听指定系统顶层页面的请求事件，读取真实 HTTP 状态码，不修改服务器响应。</p>
+    <p><code>http://113.44.77.136/*</code> 主机权限用于观察该 IP 的 HTTP 请求及核对目标标签页 URL。该权限匹配模式覆盖同一 IP 的 HTTP 端口，运行代码进一步严格限定实际功能仅作用于 8080 端口。</p>
+
+    <h2>五、不处理的信息与数据共享</h2>
+    <p>扩展不读取账号、密码、网页表单、Cookie、请求体、响应正文或响应头内容，不收集用户身份、财务、健康、通讯或地理位置资料，不使用广告、分析统计或第三方跟踪，不下载或执行远程代码。</p>
+    <p>扩展没有运行数据上传功能。发布者不会通过扩展收到用户的访问地址或运行日志，不出售、转让或共享这些数据，也不将其用于广告、信用评估或贷款判断。</p>
+
+    <h2>六、本地诊断与重新访问</h2>
+    <p>扩展会在浏览器本地的后台开发者控制台输出诊断信息，例如是否观察到 502、事件类型、临时标签页 ID、请求 ID 或网络错误码；不输出访问 URL、账号或密码。日志的显示和保留由浏览器开发者工具管理，扩展不将其保存为文件或对外上传。</p>
+    <p>提示页的 HTML、CSS 和脚本均随扩展提供，不依赖远程资源。用户点击“重新访问系统”后，浏览器正常导航到预设的系统登录地址。业务系统本身的登录与数据处理由该系统负责，不属于本扩展的处理范围。</p>
+
+    <h2>七、用户控制</h2>
+    <p>用户可在 Microsoft Edge 的扩展管理页面撤销站点授权、停用或卸载本扩展。停用或卸载后，扩展停止处理后续请求。本扩展没有服务器端用户账户，也没有由发布者保存的运行数据需要申请删除。</p>
+
+    <h2>八、说明更新与联系</h2>
+    <p>如果扩展功能或数据处理方式发生变化，发布者将相应更新本说明及生效日期。有关本扩展或本说明的问题，请联系：<a href="mailto:2072797886@qq.com">2072797886@qq.com</a>。</p>
+    <footer>上海骁卓数字科技有限公司 · 系统访问提示助手</footer>
+  </main>
+</body>
+</html>
